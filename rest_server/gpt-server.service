@@ -1,0 +1,13 @@
+[Unit]
+Description=GPT Server
+After=network.target
+
+[Service]
+User=silvacarl
+WorkingDirectory=/home/silvacarl/Desktop/GPT-Dev-API/rest_server
+ExecStart=/bin/bash -c "/usr/bin/python3 /bin/uvicorn server:app --host 0.0.0.0 --port 9002 --log-level info --ssl-keyfile selfsigned.key --ssl-certfile selfsigned.crt >> gpt.log 2>&1"
+Restart=always
+PIDFile=/home/silvacarl/Desktop/GPT-Dev-API/rest_server/gpt.pid
+
+[Install]
+WantedBy=multi-user.target

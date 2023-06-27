@@ -1,0 +1,28 @@
+torch
+torchvision
+torchaudio
+fastapi
+pydantic
+uvicorn
+nvidia-pyindex
+sentencepiece
+polygraphy
+rich
+redis
+attr
+attrs
+nest-asyncio
+unidecode
+optimum
+optimum[onnxruntime-gpu]
+optimum[exporters]
+deepspeed @ git+https://github.com/microsoft/DeepSpeed@v0.9.4
+deepspeed-mii @ git+https://github.com/microsoft/DeepSpeed-MII@main
+cformers @ git+https://github.com/mallorbc/cformers@master
+protobuf==3.20.*
+einops
+xformers
+scipy
+bitsandbytes>=0.39.0
+accelerate @ git+https://github.com/huggingface/accelerate@main
+transformers @ git+https://github.com/huggingface/transformers@main

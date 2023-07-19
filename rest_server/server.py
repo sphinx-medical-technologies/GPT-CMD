@@ -19,11 +19,7 @@ app_runner = GptAPI(config)
 
 @app.get('/')
 def get_root():
-    return {'message': 'This is the GPT-CMD API'}
-
-@app.get('/yes-or-no-classifier')
-async def analyze_yes_no(text: Union[str, None] = None):
-    return app_runner.analyze_yes_no(text)
+    return {'message': 'This is the Yes-Or-No API'}
 
 @app.post("/generate/")
 def generate(request: Request,post_data:post_data):

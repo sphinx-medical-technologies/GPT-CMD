@@ -15,11 +15,12 @@ from config import Config
 
 app = FastAPI()
 config = Config()
+print(config)
 app_runner = GptAPI(config)
 
 @app.get('/')
 def get_root():
-    return {'message': 'This is the Yes-Or-No API'}
+    return {'message': 'This is the GPT-CMD API'}
 
 @app.post("/generate/")
 def generate(request: Request,post_data:post_data):

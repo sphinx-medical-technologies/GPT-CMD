@@ -20,6 +20,8 @@ from app_typings import post_data
 from config import Config
 from models import AccelerateModel
 
+os.environ["CT2_VERBOSE"] = "2"
+
 class GptAPI:
     def __init__(self,config:Config):
         self.args = config
@@ -48,7 +50,7 @@ class GptAPI:
         self.model = AI('EleutherAI/gpt-j-6B',from_pretrained=self.args.model)
 
     def _load_model_ctranslate(self):
-        self.logger.info("Loading Model with CTranslate...")
+        self.logger.info("Loading Model with CTranslate on device cuda")
         self.model = ctranslate2.Generator(model_path=self.args.model,device="cuda")
 #	 self.model = ctranslate2.Generator(model_path=self.args.model,device_index=[0,1],device="cuda")
 

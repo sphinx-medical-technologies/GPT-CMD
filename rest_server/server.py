@@ -4,6 +4,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from typing import Union
 import os
+os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
 
 f = open("gpt.pid", "w")
 f.write(str(os.getpid()))
@@ -15,12 +16,11 @@ from config import Config
 
 app = FastAPI()
 config = Config()
-print(config)
 app_runner = GptAPI(config)
 
 @app.get('/')
 def get_root():
-    return {'message': 'This is the GPT-CMD API'}
+    return {'message': 'This is the Yes-Or-No API'}
 
 @app.post("/generate/")
 def generate(request: Request,post_data:post_data):

@@ -26,7 +26,7 @@ class GptAPI:
     def __init__(self,config:Config):
         self.args = config
         self.using_mpt = False
-        self.logger = get_logger("GPT", "info")
+        self.logger = get_logger("GPT", "debug")
         self.logger.info("GPT init")
         self.logger.info(f"Using config: {self.args}")
         self._load_model()

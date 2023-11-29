@@ -54,6 +54,10 @@ class GptAPI:
         self.model = ctranslate2.Generator(model_path=self.args.model,device="cuda")
 #	 self.model = ctranslate2.Generator(model_path=self.args.model,device_index=[0,1],device="cuda")
 
+    def _load_model_vllm(self):
+        self.logger.info("Loading Model with VLLM")
+        self.model = LLM(model=self.args.model)
+
     def _load_normal_model(self):
         model_config = AutoConfig.from_pretrained(self.args.model,trust_remote_code=self.args.trust_remote_code)
         model_config.use_cache = True

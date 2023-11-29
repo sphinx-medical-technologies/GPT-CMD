@@ -3,7 +3,7 @@ from attr import attrib, attrs
 # @attrs(auto_attribs=True, frozen=False, auto_detect=True)
 @attrs(auto_attribs=True, frozen=False)
 class Config:
-    model:str = "/home/silvacarl/Desktop/models/gpt-cmd-int8"
+    model:str = "/home/silvacarl/Desktop/models/gpt-j-6b-int8"
     port: int = 9002
 
     #you can only use one of these at a time, it will error out if you try to use more than one

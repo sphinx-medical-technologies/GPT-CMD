@@ -3,15 +3,15 @@ from attr import attrib, attrs
 # @attrs(auto_attribs=True, frozen=False, auto_detect=True)
 @attrs(auto_attribs=True, frozen=False)
 class Config:
-    model:str = "mistralai/Mistral-7B-Instruct-v0.1"
+    model:str = "/home/silvacarl/Desktop/models/gpt-cmd-int8"
     port: int = 9002
 
     #you can only use one of these at a time, it will error out if you try to use more than one
     use_ggml:bool = False
     use_int8:bool = False
-    use_ctranslate:bool = False
     use_int4:bool = False
-    use_accelerate:bool = False
+    use_ctranslate:bool = False
+    use_vllm:bool = True
 
     # this controls how many GPUs to use
     tensor_parallel_size:int = 1

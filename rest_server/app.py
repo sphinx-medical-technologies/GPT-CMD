@@ -70,11 +70,11 @@ class GptAPI:
             self.tokenizer.model_max_length = self.args.mpt_window
         if torch.cuda.is_bf16_supported():
             self.logger.info("Using bfloat16")
-            self.model = AutoModelForCausalLM.from_pretrained(self.args.model,torch_dtype=torch.bfloat16,trust_remote_code=self.args.trust_remote_code,config=model_config).cuda()
+            self.model = AutoModelForCausalLM.from_pretrained(self.args.model,torch_dtype=torch.bfloat16,device_map="auto",trust_remote_code=self.args.trust_remote_code,config=model_config).cuda()
             self.model.bfloat16()
         else:
             self.logger.info("Using float16")
-            self.model = AutoModelForCausalLM.from_pretrained(self.args.model,torch_dtype=torch.float16,trust_remote_code=self.args.trust_remote_code,config=model_config).cuda()
+            self.model = AutoModelForCausalLM.from_pretrained(self.args.model,torch_dtype=torch.float16,device_map="auto",trust_remote_code=self.args.trust_remote_code,config=model_config).cuda()
 
     def _load_tokenizer_special(self):
         if self.args.use_ggml:
